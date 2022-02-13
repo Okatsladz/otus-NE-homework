@@ -132,3 +132,4 @@ _Данной команлрй мы включаем доступ к VTY_
 Назначаем компьютеру IP-адрес и маску подсети в соответствии с таблицей адресации.
 ![Консоль11](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab1/Images/Console-11.png)  
 
+ 
