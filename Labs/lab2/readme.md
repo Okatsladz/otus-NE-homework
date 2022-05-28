@@ -2,7 +2,7 @@
 ------
 
 Топология сети:  
-![Топология сети](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab1/Images/Topology.png)  
+![Топология сети](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/Topology.png)  
 Используемое ПО: Cisco Packet Tracer 
 
 **Таблица адресации**
