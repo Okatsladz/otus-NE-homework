@@ -52,22 +52,39 @@
 
 ### Часть 2. Создание сетей VLAN и назначение портов коммутатора
 
-#### Шаг 1. Назначаем IPv6-адреса интерфейсам Ethernet на R1
+#### Шаг 1. Создадим необходимые VLAN на каждом коммутаторе.
 
-**a.** Назначим IPv6 адреса на интерфейсы g0/0/0 и g0/0/1, проверим их корректность командой **show ipv6 interface brief**.
+**a.** Создадим Vlan 10, 20, 999, 1000 для S1, назначим интерфейс Vlan 10, назовём каждый Vlan и включим их
 
-![Консоль3](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console3.png)    
+![Консоль4](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab6/Images/console4.png)    
 
-**b.** Cтандартизируем link-local адреса g0/0/0 и g0/0/1, проверим их корректность командой **show ipv6 interface brief**.
+**b.** Создадим Vlan 10, 30, 999, 1000 для S2, назначим интерфейс Vlan 10, назовём каждый Vlan и включим их
 
-![Консоль4](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console4.png)    
+![Консоль5](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab6/Images/console5.png)   
 
-Ответ на вопрос, - **_Какие группы многоадресной рассылки назначены интерфейсу G0/0?:_**  
-_FE80::1_
+**c.** Назначим все неиспользуемые порты коммутатора VLAN Parking_Lot на обоих коммутаторах, настроим их для статического режима доступа и деактивируем
 
-#### Шаг 2. Активируем IPv6-маршрутизацию на R1
+![Консоль6](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab6/Images/console6.png)   
 
-**a.**	Настроим PC-B 
+#### Шаг 2. Назначим сети VLAN соответствующим интерфейсам коммутатора.
+
+**a.** Назначьте используемые порты соответствующей VLAN (указанной в таблице VLAN выше) и настройте их для режима статического доступа.
+
+![Консоль7](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab6/Images/console7.png)   
+
+**b.** Проверим корректность назначения Vlan
+
+![Консоль8](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab6/Images/console8.png)   
+
+### Часть 3. Конфигурация магистрального канала стандарта 802.1Q между коммутаторами
+
+#### Шаг 1. Активируем IPv6-маршрутизацию на R1
+
+**a.**	Настроим trunk режим на интерфейсах f0/1 обоих коммутаторов 
+
+![Консоль6](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab6/Images/console6.png) 
+
+**b.**	Настроим native на Vlan 1000 обоих коммутаторов 
 
 2.1.1. Введём команду на PC-B **ipconfig** , чтобы получить данные IPv6-адреса, назначенного интерфейсу ПК.
 
