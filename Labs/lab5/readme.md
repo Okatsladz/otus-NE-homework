@@ -26,7 +26,7 @@
 #### Шаг 2. Настраиваем маршрутизатор. 
 **a.**  Сносим настройки, назначаем пароли для привелигрованного режима, консоли, VTY, зашифруем данные пароли.  После настроим интерфейс. Дополнительно создадим motd баннер и сохраним конфигурацию в файл.
 
-![Консоль1](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console 1.png)    
+![Консоль1](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console1.png)    
 
 #### Шаг 3. Настроим компьютер и проверим пинг. 
 
