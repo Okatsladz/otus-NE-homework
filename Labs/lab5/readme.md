@@ -76,7 +76,7 @@
 
 **a.**   Установим с коммутатора S1 соединение с маршрутизатором R1 по протоколу SSH.
 
-![Консоль12](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/console12.png)  
+![Консоль12](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console12.png)  
 #### Ответы на общие вопросы:
 
 1. Ответ на вопрос, - **_Как предоставить доступ к сетевому устройству нескольким пользователям, у каждого из которых есть собственное имя пользователя?:_**  
