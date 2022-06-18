@@ -57,25 +57,31 @@ _FE80::1_
 
 2.1.1. Введём команду на PC-B **ipconfig** , чтобы получить данные IPv6-адреса, назначенного интерфейсу ПК.
 
-![Консоль5](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/console5.png)  
+![Консоль5](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console5.png)  
 
 2.1.2. Ответ на вопрос, - **_Назначен ли индивидуальный IPv6-адрес сетевой интерфейсной карте (NIC) на PC-B?:_**  
 _IPv6-адресс, назначенный на PC-B - FE80::260:5CFF:FE5D:753C_  
 
-![Консоль6](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/console6.png)  
+![Консоль6](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console6.png)  
 
 **b.**  b.	Активируем IPv6-маршрутизацию на R1 с помощью команды **IPv6 unicast-routing.**
 
 2.2.1 Теперь, когда R1 входит в группу многоадресной рассылки всех маршрутизаторов, еще раз введём команду **ipconfig** на PC-B.
 
-![Консоль7](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/console7.png)  
+![Консоль7](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console7.png)  
 
 2.2.2. Ответ на вопрос, - **_Почему PC-B получил глобальный префикс маршрутизации и идентификатор подсети, которые вы настроили на R1?:_**  
 _Маршрутизатор отослал на компьютер данный адрес с помощью SLAAC_  
 
 #### Шаг 3. Назначим IPv6-адреса на S1.
 
-**a.**	Назначим глобальный и локальные адреса на VLAN-1 S1
+**a.**	Назначим глобальный и локальный адреса на VLAN-1 S1
+
+![Консоль8](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/console8.png)  
+
+**b.**	Проверим корректность записанных адресов через **show ipv6 interface vlan 1**.
+
+![Консоль9](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/console9.png)  
 
 2.1.3	В привилегированном режиме введём команду **show mac address-table** и нажмиём клавишу ввода.
 
