@@ -26,41 +26,56 @@
 | R1 / G0/0/1     | PC-B / Fa0/1   |   
 
 
-#### Шаг 2.Настроим базовые параметры коммутаторов S1 и S2. 
-**a.**  Настраиваем парольный доступ по VTY, console 0 и привелигированному доступу на коммутаторе S1:
+#### Шаг 2.Настроим базовые параметры маршрутизатора R1 и коммутатора S1.
+**a.**  Создаём aaa учётную запись админа с полным доступом, устанавливаем название узла, создаём RSA ключи шифрования для SSH.
 
-![Консоль1](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/console1.png)    
+![Консоль1](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console1.png)    
 
 **b.**  Настраиваем парольный доступ по VTY, console 0 и привелигированному доступу на коммутаторе S2:
 
-![Консоль2](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/console2.png)    
+![Консоль2](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console2.png)    
  
-**с.**  Настраиваем vlan 1 на обоих коммутаторах:
-
-![Консоль3](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/console3.png)    
-
   
-### Часть 2. Изучение таблицы МАС-адресов коммутатора 
+### Часть 2. Ручная настройка IPv6-адресов
 
-#### Шаг 1. Изучаем таблицу MAC-адресов
+#### Шаг 1. Назначаем IPv6-адреса интерфейсам Ethernet на R1
 
-**a.** Выводим Мак-адреса устройств.
+**a.** Назначим IPv6 адреса на интерфейсы g0/0/0 и g0/0/1, проверим их корректность командой **show ipv6 interface brief**.
 
-2.1.1	Откроем командную строку на PC-A и PC-B и введём команду **ipconfig /all**.
+![Консоль3](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console3.png)    
 
-![Консоль4](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/console4.png)  
+**b.** Cтандартизируем link-local адреса g0/0/0 и g0/0/1, проверим их корректность командой **show ipv6 interface brief**.
 
-_MAC-адрес компьютера PC-A: 0001.420C.2C1E_  
-_MAC-адрес компьютера PC-B: 0050.0FAC.AA00_  
+![Консоль4](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console4.png)    
 
-2.1.2	Подключимся к коммутаторам S1 и S2 через консоль и введём команду show **interface F0/1** на каждом коммутаторе. 
+Ответ на вопрос, - **_Какие группы многоадресной рассылки назначены интерфейсу G0/0?:_**  
+_FE80::1_
+
+#### Шаг 2. Активируем IPv6-маршрутизацию на R1
+
+**a.**	Настроим PC-B 
+
+2.1.1. Введём команду на PC-B **ipconfig** , чтобы получить данные IPv6-адреса, назначенного интерфейсу ПК.
 
 ![Консоль5](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/console5.png)  
 
-_Физический адрес S1: Hardware is Lance, address is 0007.ecdc.8801 (bia 0007.ecdc.8801)_
-_Физический адрес S2: Hardware is Lance, address is 0040.0b19.6401 (bia 0040.0b19.6401)_
- 
-**b.**  Посмотрим таблицу МАС-адресов коммутатора.
+2.1.2. Ответ на вопрос, - **_Назначен ли индивидуальный IPv6-адрес сетевой интерфейсной карте (NIC) на PC-B?:_**  
+_IPv6-адресс, назначенный на PC-B - FE80::260:5CFF:FE5D:753C_  
+
+![Консоль6](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/console6.png)  
+
+**b.**  b.	Активируем IPv6-маршрутизацию на R1 с помощью команды **IPv6 unicast-routing.**
+
+2.2.1 Теперь, когда R1 входит в группу многоадресной рассылки всех маршрутизаторов, еще раз введём команду **ipconfig** на PC-B.
+
+![Консоль7](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/console7.png)  
+
+2.2.2. Ответ на вопрос, - **_Почему PC-B получил глобальный префикс маршрутизации и идентификатор подсети, которые вы настроили на R1?:_**  
+_Маршрутизатор отослал на компьютер данный адрес с помощью SLAAC_  
+
+#### Шаг 3. Назначим IPv6-адреса на S1.
+
+**a.**	Назначим глобальный и локальные адреса на VLAN-1 S1
 
 2.1.3	В привилегированном режиме введём команду **show mac address-table** и нажмиём клавишу ввода.
 
