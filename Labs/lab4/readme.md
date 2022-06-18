@@ -29,11 +29,11 @@
 #### Шаг 2.Настроим базовые параметры маршрутизатора R1 и коммутатора S1.
 **a.**  Создаём aaa учётную запись админа с полным доступом, устанавливаем название узла, создаём RSA ключи шифрования для SSH.
 
-![Консоль1](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console1.png)    
+![Консоль1](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console1.png)    
 
 **b.**  Настраиваем парольный доступ по VTY, console 0 и привелигированному доступу на коммутаторе S2:
 
-![Консоль2](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console2.png)    
+![Консоль2](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console2.png)    
  
   
 ### Часть 2. Ручная настройка IPv6-адресов
@@ -42,11 +42,11 @@
 
 **a.** Назначим IPv6 адреса на интерфейсы g0/0/0 и g0/0/1, проверим их корректность командой **show ipv6 interface brief**.
 
-![Консоль3](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console3.png)    
+![Консоль3](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console3.png)    
 
 **b.** Cтандартизируем link-local адреса g0/0/0 и g0/0/1, проверим их корректность командой **show ipv6 interface brief**.
 
-![Консоль4](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console4.png)    
+![Консоль4](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console4.png)    
 
 Ответ на вопрос, - **_Какие группы многоадресной рассылки назначены интерфейсу G0/0?:_**  
 _FE80::1_
@@ -57,18 +57,18 @@ _FE80::1_
 
 2.1.1. Введём команду на PC-B **ipconfig** , чтобы получить данные IPv6-адреса, назначенного интерфейсу ПК.
 
-![Консоль5](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console5.png)  
+![Консоль5](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console5.png)  
 
 2.1.2. Ответ на вопрос, - **_Назначен ли индивидуальный IPv6-адрес сетевой интерфейсной карте (NIC) на PC-B?:_**  
 _IPv6-адресс, назначенный на PC-B - FE80::260:5CFF:FE5D:753C_  
 
-![Консоль6](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console6.png)  
+![Консоль6](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console6.png)  
 
 **b.**  b.	Активируем IPv6-маршрутизацию на R1 с помощью команды **IPv6 unicast-routing.**
 
 2.2.1 Теперь, когда R1 входит в группу многоадресной рассылки всех маршрутизаторов, еще раз введём команду **ipconfig** на PC-B.
 
-![Консоль7](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console7.png)  
+![Консоль7](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console7.png)  
 
 2.2.2. Ответ на вопрос, - **_Почему PC-B получил глобальный префикс маршрутизации и идентификатор подсети, которые вы настроили на R1?:_**  
 _Маршрутизатор отослал на компьютер данный адрес с помощью SLAAC_  
@@ -77,11 +77,11 @@ _Маршрутизатор отослал на компьютер данный 
 
 **a.**	Назначим глобальный и локальный адреса на VLAN-1 S1
 
-![Консоль8](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/console8.png)  
+![Консоль8](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console8.png)  
 
 **b.**	Проверим корректность записанных адресов через **show ipv6 interface vlan 1**.
 
-![Консоль9](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab2/Images/console9.png)  
+![Консоль9](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console9.png)  
 
 #### Шаг 4. Назначим статические IPv6-адреса на компьютеры PC-A и PC-B.
 
