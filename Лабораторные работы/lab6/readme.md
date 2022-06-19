@@ -78,73 +78,51 @@
 
 ### Часть 3. Конфигурация магистрального канала стандарта 802.1Q между коммутаторами
 
-#### Шаг 1. Активируем IPv6-маршрутизацию на R1
+#### Шаг 1. Вручную настроим магистральный интерфейс F0/1 на коммутаторах S1 и S2.
 
 **a.**	Настроим trunk режим на интерфейсах f0/1 обоих коммутаторов 
 
-![Консоль6](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab6/Images/console6.png) 
-
 **b.**	Настроим native на Vlan 1000 обоих коммутаторов 
 
-2.1.1. Введём команду на PC-B **ipconfig** , чтобы получить данные IPv6-адреса, назначенного интерфейсу ПК.
+**с.**	Укажем, что VLAN 10, 20, 30 и 1000 могут проходить по транку.
 
-![Консоль5](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console5.png)  
+**d.**  Проверим корректность настройки транка через **show interfaces trunk**. 
 
-2.1.2. Ответ на вопрос, - **_Назначен ли индивидуальный IPv6-адрес сетевой интерфейсной карте (NIC) на PC-B?:_**  
-_IPv6-адресс, назначенный на PC-B - FE80::260:5CFF:FE5D:753C_  
+![Консоль9](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab6/Images/console9.png)   
 
-![Консоль6](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console6.png)  
+#### Шаг 2. Вручную настроим магистральный интерфейс F0/5 на коммутаторе S1.
 
-**b.**  b.	Активируем IPv6-маршрутизацию на R1 с помощью команды **IPv6 unicast-routing.**
+**a.**	Прведём аналогичную процедуру, что и с F0/1.
 
-2.2.1 Теперь, когда R1 входит в группу многоадресной рассылки всех маршрутизаторов, еще раз введём команду **ipconfig** на PC-B.
+**b.**	Проверим корректность настройки транка через **show interfaces trunk**. 
 
-![Консоль7](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console7.png)  
+![Консоль10](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab6/Images/console10.png)   
 
-2.2.2. Ответ на вопрос, - **_Почему PC-B получил глобальный префикс маршрутизации и идентификатор подсети, которые вы настроили на R1?:_**  
-_Маршрутизатор отослал на компьютер данный адрес с помощью SLAAC_  
+3.1.1. Ответ на вопрос, - **_Что произойдет, если G0/0/1 на R1 будет отключен?:_**  
+_Так как мы не настроили интерфейс на G0/0/1, интерфейс коммутатора также отключён_ 
 
-#### Шаг 3. Назначим IPv6-адреса на S1.
+### Часть 4. Настройка маршрутизации между сетями VLAN
 
-**a.**	Назначим глобальный и локальный адреса на VLAN-1 S1
+#### Шаг 1. Настроим маршрутизатор 
 
-![Консоль8](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console8.png)  
+**a.**	Активируем интерфейс G0/0/1 и настроим подинтерфейсы.
 
-**b.**	Проверим корректность записанных адресов через **show ipv6 interface vlan 1**.
+![Консоль11](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab6/Images/console11.png)   
 
-![Консоль9](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console9.png)  
+**b.**	Проверим корректность настройки сабинтерфейсов через **show interfaces**. 
 
-#### Шаг 4. Назначим статические IPv6-адреса на компьютеры PC-A и PC-B.
+![Консоль12](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab6/Images/console12.png)   
 
-**a.**	Назначим статические IPv6-адреса на компьютеры PC-A и PC-B.
 
-**b.**	Убедимся правильность назначения IPv6 адресов, проверив сетевые настройки, вписав ipconfig в cmd обоих компьютеров.
+### Часть 5. Проверим работает ли маршрутизация между VLAN
 
-![Консоль10](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console10.png)  
+#### Шаг 1. Пропингуем следующие узлы с PC-A. Все должно быть успешно.
 
-### Часть 3. Проверка сквозного подключения
+**a.**	С PC-A на шлюз.
 
-**a.**	C PC-A проверим доступность R1, пропинговав его локальный адрес.
+**b.**	С PC-A на PC-B. (пинга нет(((((((((((((( )
 
-![Консоль11](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console11.png)  
+**c.**	С PC-A на коммутатор S2
 
-**b.**	C PC-A проверим доступность S1, пропинговав его адрес.
-
-![Консоль12](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console12.png)  
-
-**с.**	C PC-A введём команду **tracert** до PC-B
-
-![Консоль13](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console13.png)  
-
-**d.**	C PC-B отправим пинг до G0/0/0 R1
-
-![Консоль14](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console14.png)  
-
-#### Ответы на общие вопросы: 
-
-1. Ответ на вопрос, - **_Почему обоим интерфейсам Ethernet на R1 можно назначить один и тот же локальный адрес канала — FE80::1?:_**  	
-_Локальный адрес можно назначить интерфейсам одного маршрутизатора_
-
-2. Ответ на вопрос, - **_2.	Какой идентификатор подсети в индивидуальном IPv6-адресе 2001:db8:acad::aaaa:1234/64?_**  	
-_0000_
+![Консоль14](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab6/Images/console14.png)   
 
