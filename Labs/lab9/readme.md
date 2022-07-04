@@ -3,7 +3,7 @@
 ------
 
 Топология сети:  
-![Топология сети](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/Topology.png)  
+![Топология сети](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab9/Images/Topology.png)  
 Используемое ПО: Cisco Packet Tracer 
 
 **Таблица адресации**
@@ -22,30 +22,31 @@
 **a.**	Соединяем с помощью Витой Пары следующие узлы:
 | Устройство/Порт | Устройство/Порт | 
 | ------------- |:------------------:| 
-| PC-A / Fa0/1     | S1 / Fa0/6    | 
-| S1 / Fa0/5     | R1 / G0/0/1    | 
-| R1 / G0/0/1     | PC-B / Fa0/1   |   
+| PC-A / Fa0/0     | S1 / Fa0/6    | 
+| PC-B / Fa0/0     | S1 / Fa0/18    | 
+| S1 / Fa0/1     | S2 / F0/1    | 
+| R1 / G0/0/1     | S1 / Fa0/5   |   
 
 
-#### Шаг 2.Настроим базовые параметры маршрутизатора R1 и коммутатора S1.
-**a.**  Создаём aaa учётную запись админа с полным доступом, устанавливаем название узла, создаём RSA ключи шифрования для SSH.
+#### Шаг 2.Настроим базовые параметры маршрутизатора R1 и коммутаторов S1 и S2.
+**a.**  Настраиваем R1. Включаем DHCP, настраиваем интерфейсы и доп настройки. 
 
-![Консоль1](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console1.png)    
+![Консоль1](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab9/Images/console1.png)    
 
-**b.**  Настраиваем парольный доступ по VTY, console 0 и привелигированному доступу на коммутаторе S2:
+**b.**  Настраиваем S1 и S2.
 
-![Консоль2](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console2.png)    
+![Консоль2](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab9/Images/console2.png)    
  
   
-### Часть 2. Ручная настройка IPv6-адресов
+### Часть 2. Настройка сетей VLAN на коммутаторах.
 
-#### Шаг 1. Назначаем IPv6-адреса интерфейсам Ethernet на R1
+#### Шаг 1. Конфигурируем Vlan 10 на S1 и S2
 
-**a.** Назначим IPv6 адреса на интерфейсы g0/0/0 и g0/0/1, проверим их корректность командой **show ipv6 interface brief**.
+**a.** Настроим адресанцию на Vlan 10 и назовём его **managment** 
 
 ![Консоль3](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console3.png)    
 
-**b.** Cтандартизируем link-local адреса g0/0/0 и g0/0/1, проверим их корректность командой **show ipv6 interface brief**.
+**b.** Настроим транки, использовав native Vlan 333. Также введём неиспользуемые порты в Vlan 999. 
 
 ![Консоль4](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab4/Images/console4.png)    
 
