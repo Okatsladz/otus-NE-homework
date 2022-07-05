@@ -54,39 +54,36 @@
 
 **f.** Проверим пинг до лупбека.
 
-![Консоль5](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console5.png)  
+![Консоль5](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab6/Images/console5.png)  
 
 
 ### Часть 3. Оптимизация и проверка конфигурации OSPFv2 для одной области
 
 #### Шаг 1. Реализация различных оптимизаций на каждом маршрутизаторе.
 
-**a.**  Сносим настройки, назначаем пароли для привелигрованного режима, консоли, VTY, зашифруем данные пароли.  После настроим Vlan. Дополнительно создадим motd баннер и сохраним конфигурацию в файл.
+**a.**  На обоих маршрутизаторах настраиваем ospf priority, ospf hello-interval
 
-![Консоль6](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console6.png) 
-![Консоль7](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console7.png) 
 
-**b.**  Создадим учётную запись пользователя **admin** в локальной базе учётных записей
-![Консоль8](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console8.png) 
+**b.**  На R1 настроим статический маршрут до лупбека в качестве интерфейса и распространим его в OSPF. 
 
-**c.** Настраиваем SSH 
 
-![Консоль10](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console10.png) 
+**c.** На R2 врубим passive-interface на лупбек 1
 
-2.3.1 Проверяем работоспособность SSH, подключившись с PC-A на S1
+![Консоль6](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab10 /Images/console6.png) 
 
-![Консоль11](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console11.png) 
 
-### Часть 4. Настройка протокола SSH с использованием интерфейса командной строки коммутатора
+**d.** Изменяем пропускную способность и перезапустим OSPF. 
 
-**a.**   Установим с коммутатора S1 соединение с маршрутизатором R1 по протоколу SSH.
+![Консоль7](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab10/Images/console7.png) 
 
-![Консоль12](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab5/Images/console12.png)  
-#### Ответы на общие вопросы:
+#### Шаг 2. Проверим работоспособность 
 
-1. Ответ на вопрос, - **_Как предоставить доступ к сетевому устройству нескольким пользователям, у каждого из которых есть собственное имя пользователя?:_**  
-_Создать локальную базу пользователей через aaa, создать несколько учётных записей, раздать им разный уровень привелегий _  
+**a.**  Проверяем информацию OSPF на R1
 
+
+**b.**  Проверяем информацию OSPF на R1
+
+![Консоль8](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab10/Images/console8.png) 
 
 
 
