@@ -54,7 +54,7 @@
 
 **f.** Проверим пинг до лупбека.
 
-![Консоль5](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab6/Images/console5.png)  
+![Консоль5](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab10/Images/console5.png)  
 
 
 ### Часть 3. Оптимизация и проверка конфигурации OSPFv2 для одной области
@@ -69,7 +69,7 @@
 
 **c.** На R2 врубим passive-interface на лупбек 1
 
-![Консоль6](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab10 /Images/console6.png) 
+![Консоль6](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab10/Images/console6.png) 
 
 
 **d.** Изменяем пропускную способность и перезапустим OSPF. 
