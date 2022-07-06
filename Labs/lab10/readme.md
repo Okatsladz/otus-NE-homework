@@ -74,7 +74,7 @@
 
 **d.** Изменяем пропускную способность и перезапустим OSPF. 
 
-![Консоль7](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab10/Images/console7.png) 
+![Консоль7](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab10/Images/console9.png) 
 
 #### Шаг 2. Проверим работоспособность 
 
@@ -83,7 +83,7 @@
 
 **b.**  Проверяем информацию OSPF на R1
 
-![Консоль8](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab10/Images/console8.png) 
+![Консоль8](https://github.com/Okatsladz/otus-NE-homework/blob/main/Labs/lab10/Images/console10.png) 
 
 
 
